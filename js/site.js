@@ -100,4 +100,45 @@
       }
     });
   }
+  // ---------- Trailer modal ----------
+  const trailerPoster = document.getElementById("trailerPoster");
+  const trailerModal = document.getElementById("trailerModal");
+  const trailerIframe = document.getElementById("trailerIframe");
+  const trailerClose = document.getElementById("trailerModalClose");
+  const TRAILER_EMBED = "https://www.youtube.com/embed/7UCQMHaWK-o?autoplay=1&rel=0";
+
+  if (trailerPoster && trailerModal && trailerIframe) {
+    function openTrailer() {
+      trailerIframe.src = TRAILER_EMBED;
+      trailerModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+    function closeTrailer() {
+      trailerIframe.src = "";
+      trailerModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    trailerPoster.addEventListener("click", openTrailer);
+    trailerPoster.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openTrailer();
+      }
+    });
+
+    if (trailerClose) {
+      trailerClose.addEventListener("click", closeTrailer);
+    }
+
+    trailerModal.addEventListener("click", function (e) {
+      if (e.target === trailerModal) closeTrailer();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && trailerModal.classList.contains("active")) {
+        closeTrailer();
+      }
+    });
+  }
 })();
