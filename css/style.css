@@ -1027,3 +1027,28 @@ p:last-child {
 .thankyou-modal.show {
   animation: fadeInModal 0.35s ease-out forwards;
 }
+/* Book trailer (vertical 9:16 YouTube Short) */
+.trailer-section {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.trailer-frame {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.trailer-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
