@@ -142,3 +142,51 @@
     });
   }
 })();
+// ---------- Amazon regional routing ----------
+  const amazonDomains = {
+    US: "https://www.amazon.com/dp/",
+    CA: "https://www.amazon.ca/dp/",
+    GB: "https://www.amazon.co.uk/dp/",
+    AU: "https://www.amazon.com.au/dp/",
+    IN: "https://www.amazon.in/dp/",
+    DE: "https://www.amazon.de/dp/",
+    FR: "https://www.amazon.fr/dp/",
+    IT: "https://www.amazon.it/dp/",
+    ES: "https://www.amazon.es/dp/",
+    NL: "https://www.amazon.nl/dp/",
+    JP: "https://www.amazon.co.jp/dp/",
+    MX: "https://www.amazon.com.mx/dp/",
+    BR: "https://www.amazon.com.br/dp/",
+    AE: "https://www.amazon.ae/dp/",
+    SG: "https://www.amazon.sg/dp/",
+    SE: "https://www.amazon.se/dp/",
+    PL: "https://www.amazon.pl/dp/"
+  };
+
+  const amazonButtons = document.querySelectorAll(".amazon-buy");
+  if (amazonButtons.length > 0) {
+    const setAmazonLinks = function (countryCode) {
+      amazonButtons.forEach(function (btn) {
+        const asin = btn.getAttribute("data-asin");
+        if (!asin) return;
+        const base = amazonDomains[countryCode] || amazonDomains.US;
+        btn.href = base + asin;
+      });
+    };
+
+    const cachedCountry = sessionStorage.getItem("cm_country");
+    if (cachedCountry) {
+      setAmazonLinks(cachedCountry);
+    } else {
+      fetch("https://api.country.is")
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          const country = (data && data.country) || "US";
+          sessionStorage.setItem("cm_country", country);
+          setAmazonLinks(country);
+        })
+        .catch(function () {
+          setAmazonLinks("US");
+        });
+    }
+  }
