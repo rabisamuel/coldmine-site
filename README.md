@@ -107,3 +107,4 @@ Typography: **Cinzel** for display headings, **Cormorant Garamond** for body. Bo
 ## Tech credit
 
 Built collaboratively with Claude. Hero composition generated with Gemini. Title logo and favicon designed in Canva. Historic photos courtesy of the public domain. Kolaramma Temple imagery from Wikimedia Commons (CC BY-SA 3.0).
+
