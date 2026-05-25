@@ -161,8 +161,7 @@
     AE: "https://www.amazon.ae/dp/",
     SG: "https://www.amazon.sg/dp/",
     SE: "https://www.amazon.se/dp/",
-    PL: "https://www.amazon.pl/dp/",
-    AU: "https://www.amazon.com.au/dp/"
+    PL: "https://www.amazon.pl/dp/"
   };
 
   const amazonButtons = document.querySelectorAll(".amazon-buy");
