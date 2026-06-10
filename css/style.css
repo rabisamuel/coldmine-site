@@ -1169,3 +1169,35 @@ p:last-child {
   background: var(--gold);
   color: var(--bg-deep);
 }
+/* Origin story video (16:9 landscape inline embed) */
+.origin-section {
+  text-align: center;
+}
+
+.origin-blurb {
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.origin-frame {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.origin-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
