@@ -1200,3 +1200,7 @@ p:last-child {
   height: 100% !important;
   border: 0;
 }
+.section-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
